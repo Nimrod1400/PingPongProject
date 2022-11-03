@@ -22,11 +22,11 @@ namespace BusinessLogic
         {
             Game.FirstSideScore++;
 
-            if (Game.FirstSideScore >= Game.MaxScore && 
-                Game.FirstSideScore - Game.SecondSideScore == 2)
+            if (Game.FirstSideScore >= Game.MaxScore &&  
+                Game.FirstSideScore - Game.SecondSideScore >= 2)
             {
                 Game.FirstSideMatchesScore++;
-                ResetGame();
+                ResetMatch();
             }
         }
 
@@ -35,10 +35,10 @@ namespace BusinessLogic
             Game.SecondSideScore++;
 
             if (Game.SecondSideScore >= Game.MaxScore &&
-                Game.SecondSideScore - Game.FirstSideScore == 2)
+                Game.SecondSideScore - Game.FirstSideScore >= 2)
             {
                 Game.SecondSideMatchesScore++;
-                ResetGame();
+                ResetMatch();
             }
         }
     }
