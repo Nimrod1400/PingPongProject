@@ -3,11 +3,12 @@ using System;
 
 namespace BusinessLogic
 {
+    public delegate void GameEnd();
     public class BL
     {
-        public Game Game { get; set; } = new Game();
+        public GameEnd OnGameEnd; // to sub from view
 
-        public byte MaxScore { get; set; } = 11;
+        public Game Game { get; set; } = new Game();
 
         public int GetScore(int side)
         {
@@ -18,7 +19,21 @@ namespace BusinessLogic
             else
                 return Game.SecondSideScore;
         }
-        //TODO: GetMatchesScore, other methods and properties to get info about Game state 
+
+        public int GetMathcesScore(int side) 
+        {
+            if (side != 1 | side != 2)
+                throw new Exception("Side must be equal 1 or 2");
+            if (side == 1)
+                return Game.FirstSideMatchesScore;
+            else
+                return Game.SecondSideMatchesScore;
+        }
+
+        public int GetServingSide()
+        {
+            return Game.WhoIsServing;
+        }
 
         public void ResetMatch()
         {
@@ -35,8 +50,7 @@ namespace BusinessLogic
         {
             Game.FirstSideScore++;
 
-            if (Game.FirstSideScore >= MaxScore &&  
-                Game.FirstSideScore - Game.SecondSideScore >= 2)
+            if (CheckGameEnding())
             {
                 Game.FirstSideMatchesScore++;
                 ResetMatch();
@@ -47,12 +61,24 @@ namespace BusinessLogic
         {
             Game.SecondSideScore++;
 
-            if (Game.SecondSideScore >= MaxScore &&
-                Game.SecondSideScore - Game.FirstSideScore >= 2)
+            if (CheckGameEnding())
             {
                 Game.SecondSideMatchesScore++;
                 ResetMatch();
             }
+        }
+
+        private bool CheckGameEnding()
+        {
+            bool isEnd = (Game.FirstSideScore >= Game.MaxScore &&
+                Game.FirstSideScore - Game.SecondSideScore >= 2) ||
+                (Game.SecondSideScore >= Game.MaxScore &&
+                Game.SecondSideScore - Game.FirstSideScore >= 2);
+
+            if (isEnd) 
+                OnGameEnd();
+
+            return isEnd;
         }
     }
 }
