@@ -4,9 +4,7 @@ namespace Model
 {
     public class Game
     {
-
-        public byte MaxScore { get; set; } = 11;
-        public byte WhoStartedGame { get; set; } // 1 (first side) or 2 (second side);
+        public byte WhoStartedGame { get; set; } = 1; // 1 (first side) or 2 (second side);
                                                  // defines who was kicking off when first match in a game started
         public byte WhoStartedMatch
         {
@@ -36,6 +34,13 @@ namespace Model
         public byte SecondSideScore { get; set; }
         public byte FirstSideMatchesScore { get; set; }
         public byte SecondSideMatchesScore { get; set; }
+        public bool IsMoreThanMaxScore
+        {
+            get
+            {
+                return FirstSideScore >= 11 || SecondSideScore >= 11;
+            }
+        }
 
         private byte InverseServe(byte currentServe)
         {
