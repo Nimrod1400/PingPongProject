@@ -10,6 +10,12 @@ namespace BusinessLogic
 
         public Game Game { get; set; } = new Game();
 
+        public byte MaxScore
+        {
+            get { return Game.MaxScore; }
+            set { Game.MaxScore = value; }
+        }
+
         public int GetScore(int side)
         {
             if (side != 1 | side != 2)
