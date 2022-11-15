@@ -18,7 +18,7 @@ namespace BusinessLogic
 
         public int GetScore(int side)
         {
-            if (side != 1 | side != 2)
+            if (side != 1 & side != 2)
                 throw new Exception("Side must be equal 1 or 2");
             if (side == 1)
                 return Game.FirstSideScore;
@@ -26,9 +26,9 @@ namespace BusinessLogic
                 return Game.SecondSideScore;
         }
 
-        public int GetMathcesScore(int side) 
+        public int GetMatchesScore(int side) 
         {
-            if (side != 1 | side != 2)
+            if (side != 1 & side != 2)
                 throw new Exception("Side must be equal 1 or 2");
             if (side == 1)
                 return Game.FirstSideMatchesScore;
@@ -49,7 +49,7 @@ namespace BusinessLogic
 
         public void ResetGame()
         {
-            Game Match = new Game();
+            Game = new Game();
         }
 
         public void IncrementFirstSideScore()

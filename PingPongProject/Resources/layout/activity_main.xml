@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:weightSum="7"
-        android:id="@+id/linearLayout1" >
+        android:id="@+id/MainLayout" >
         <LinearLayout
             android:orientation="vertical"
             android:minWidth="25px"
@@ -19,24 +19,145 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:id="@+id/linearLayout2" >
+            android:id="@+id/SecondPlayerButtonLayout" >
+            <Button
+                android:text="+1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/buttonSecondPlayer"
+                android:rotation="180" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_weight="3"
+            android:weightSum="8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/MiddleLayout" >
+            <LinearLayout
+                android:orientation="vertical"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:layout_weight="5"
+                android:id="@+id/ScoreboardLayout" >
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:weightSum="5"
+                    android:id="@+id/SecondPlayerScoreboardLayout">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:id="@+id/SecondPlayerMatchesScoreLayout" >
+                        <TextView
+                            android:text="0"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textSize="30dp"
+                            android:id="@+id/SecondPlayerMatchesScoreView"
+                            android:rotation="180" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:id="@+id/SecondPlayerSideScoreLayout" >
+                        <TextView
+                            android:text="0"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textSize="50dp"
+                            android:id="@+id/SecondPlayerSideScoreView"
+                            android:rotation="180" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:minWidth="25px"
+                    android:minHeight="25px"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:weightSum="5"
+                    android:id="@+id/FirstPlayerScoreboardLayout">
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:id="@+id/FirstPlayerSideScoreLayout" >
+                        <TextView
+                            android:text="0"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textSize="50dp"
+                            android:id="@+id/FirstPlayerSideScoreView" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:orientation="vertical"
+                        android:minWidth="25px"
+                        android:minHeight="25px"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:id="@+id/FirstPlayerMatchesScoreLayout" >
+                        <TextView
+                            android:text="0"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:textAlignment="center"
+                            android:gravity="center"
+                            android:textSize="30dp"
+                            android:id="@+id/FirstPlayerMatchesScoreView" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:minWidth="25px"
+                android:minHeight="25px"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3"
+                android:id="@+id/SettingsLayout" />
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
             android:minWidth="25px"
             android:minHeight="25px"
-            android:layout_weight="3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/linearLayout3" />
-        <LinearLayout
-            android:orientation="vertical"
-            android:minWidth="25px"
-            android:minHeight="25px"
             android:layout_weight="2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout4">
+            android:id="@+id/FirstPlayerButtonLayout">
+            <Button
+                android:text="+1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/buttonFirstPlayer" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
