@@ -3,10 +3,10 @@ using System;
 
 namespace BusinessLogic
 {
-    public delegate void GameEnd();
+    public delegate void MatchEnd();
     public class BL
     {
-        public GameEnd OnGameEnd; // to sub from view
+        public MatchEnd OnMatchEnd; // to sub from view
 
         public Game Game { get; set; } = new Game();
 
@@ -56,7 +56,7 @@ namespace BusinessLogic
         {
             Game.FirstSideScore++;
 
-            if (CheckGameEnding())
+            if (CheckMatchEnding())
             {
                 Game.FirstSideMatchesScore++;
                 ResetMatch();
@@ -67,14 +67,14 @@ namespace BusinessLogic
         {
             Game.SecondSideScore++;
 
-            if (CheckGameEnding())
+            if (CheckMatchEnding())
             {
                 Game.SecondSideMatchesScore++;
                 ResetMatch();
             }
         }
 
-        private bool CheckGameEnding()
+        private bool CheckMatchEnding()
         {
             bool isEnd = (Game.FirstSideScore >= Game.MaxScore &&
                 Game.FirstSideScore - Game.SecondSideScore >= 2) ||
@@ -82,7 +82,7 @@ namespace BusinessLogic
                 Game.SecondSideScore - Game.FirstSideScore >= 2);
 
             if (isEnd) 
-                OnGameEnd();
+                OnMatchEnd();
 
             return isEnd;
         }
