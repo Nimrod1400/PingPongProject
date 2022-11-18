@@ -25,9 +25,9 @@ namespace Model
             get
             {
                 if (!IsMoreThanMaxScore)
-                    return ClassicServing();
+                    return ClassicServingLogic();
                 else
-                    return MoreThanMaxScoreServing();
+                    return MoreThanMaxScoreServingLogic();
             }
         } // defines who must be kicking off rn
         public byte FirstSideScore { get; set; }
@@ -42,7 +42,7 @@ namespace Model
             }
         }
 
-        private byte ClassicServing()
+        private byte ClassicServingLogic()
         {
             byte servesAmount = (byte)(SecondSideScore + FirstSideScore + 1);
 
@@ -52,7 +52,7 @@ namespace Model
                 return WhoStartedMatch;
         }
 
-        private byte MoreThanMaxScoreServing()
+        private byte MoreThanMaxScoreServingLogic()
         {
             byte servesAmount = (byte)(SecondSideScore + FirstSideScore + 1
                 - (MaxScore - 1) * 2);

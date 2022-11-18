@@ -13,7 +13,7 @@ namespace PingPongProject
         ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity
     {
-        BL logic = new BL();
+        private BL logic = new BL();
 
         private Button addScoreToFirstPlayerButton;
         private Button addScoreToSecondPlayerButton;
