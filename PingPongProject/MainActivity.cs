@@ -40,7 +40,7 @@ namespace PingPongProject
             Window.ClearFlags(WindowManagerFlags.ForceNotFullscreen);
 
             InitializeInterfaceElements();
-            logic.OnMatchEnd += () => { };
+            logic.OnMatchEnd += () => { }; // TODO: activity which called when match ends
 
             
             addScoreToFirstPlayerButton.Click += delegate

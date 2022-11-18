@@ -9,6 +9,7 @@ namespace Model
         public MatchEnd OnMatchEnd; // to sub from view
 
         private Game Game { get; set; } = new Game();
+
         public byte MaxScore
         {
             get { return Game.MaxScore; }
