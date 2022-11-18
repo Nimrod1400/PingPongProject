@@ -4,7 +4,7 @@ using System;
 namespace BusinessLogic
 {
     public delegate void MatchEnd();
-    public class BL
+    public class Logic
     {
         public MatchEnd OnMatchEnd; // to sub from view
 
@@ -18,6 +18,7 @@ namespace BusinessLogic
 
         public int GetScore(int side)
         {
+
             if (side != 1 & side != 2)
                 throw new Exception("Side must be equal 1 or 2");
             if (side == 1)
@@ -52,27 +53,31 @@ namespace BusinessLogic
             Game = new Game();
         }
 
-        public void IncrementFirstSideScore()
+        public void IncrementScore(int side)
         {
-            Game.FirstSideScore++;
-
-            if (CheckMatchEnding())
+            if (side == 1)
             {
-                Game.FirstSideMatchesScore++;
-                ResetMatch();
+                Game.FirstSideScore++;
+
+                if (CheckMatchEnding())
+                {
+                    Game.FirstSideMatchesScore++;
+                    ResetMatch();
+                }
+            }
+
+            else if (side == 2)
+            {
+                Game.SecondSideScore++;
+
+                if (CheckMatchEnding())
+                {
+                    Game.SecondSideMatchesScore++;
+                    ResetMatch();
+                }
             }
         }
 
-        public void IncrementSecondSideScore()
-        {
-            Game.SecondSideScore++;
-
-            if (CheckMatchEnding())
-            {
-                Game.SecondSideMatchesScore++;
-                ResetMatch();
-            }
-        }
 
         private bool CheckMatchEnding()
         {
