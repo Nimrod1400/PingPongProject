@@ -3,7 +3,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using BusinessLogic;
+using Model;
 
 namespace PingPongProject
 {
@@ -13,7 +13,7 @@ namespace PingPongProject
         ScreenOrientation = Android.Content.PM.ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity
     {
-        private BL logic = new BL();
+        private Logic logic = new Logic();
 
         private Button addScoreToFirstPlayerButton;
         private Button addScoreToSecondPlayerButton;

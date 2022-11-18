@@ -4,7 +4,7 @@ using System;
 namespace BusinessLogic
 {
     public delegate void MatchEnd();
-    public class BL
+    public class Logic
     {
         public MatchEnd OnMatchEnd; // to sub from view
 
