@@ -2,8 +2,10 @@
 using Android.OS;
 using Android.Views;
 using Android.Widget;
+using Android.Graphics;
 using AndroidX.AppCompat.App;
 using Model;
+using System.Threading;
 
 namespace PingPongProject
 {
@@ -32,17 +34,19 @@ namespace PingPongProject
 
             SetContentView(Resource.Layout.activity_main);
 
-            Window.AddFlags(Android.Views.WindowManagerFlags.KeepScreenOn |
-                Android.Views.WindowManagerFlags.Fullscreen);
-            Window.ClearFlags(Android.Views.WindowManagerFlags.ForceNotFullscreen);
-
-            Window.AddFlags(WindowManagerFlags.Fullscreen);
-            Window.ClearFlags(WindowManagerFlags.ForceNotFullscreen);
+            Window.AddFlags(WindowManagerFlags.KeepScreenOn);
 
             InitializeInterfaceElements();
+
+            Main();
+        }
+
+        private void Main()
+        {
             logic.OnMatchEnd += () => { }; // TODO: activity which called when match ends
 
-            
+            UpdateServingSideIndicator();
+
             addScoreToFirstPlayerButton.Click += delegate
             {
                 logic.IncrementScore(side: 1);
@@ -77,8 +81,24 @@ namespace PingPongProject
             FirstPlayerMatchesScoreView.Text = logic.GetMatchesScore(side: 1).ToString();
             SecondPlayerMatchesScoreView.Text = logic.GetMatchesScore(side: 2).ToString();
 
-            //if (logic.GetServingSide() == 1)
-            //    addScoreToFirstPlayerButton.SetBackgroundColor(new Android.Graphics.Color() { R = 0, G = 0, B = 255 });
+            UpdateServingSideIndicator();
+        }
+
+        private void SetButtonColor(Button button, Color color)
+        {
+            
+        }
+
+        private void UpdateServingSideIndicator()
+        {
+            if (logic.WhoIsServing == 1)
+            {
+                
+            }
+            else if (logic.WhoIsServing == 2)
+            {
+                
+            }
         }
     }
 }

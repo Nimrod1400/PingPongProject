@@ -19,7 +19,8 @@ namespace Model
         {
             get
             {
-                return Game.FirstSideScore >= 11 || Game.SecondSideScore >= 11;
+                return Game.FirstSideScore >= MaxScore - 1 && 
+                    Game.SecondSideScore >= MaxScore - 1;
             }
         }
         public byte WhoStartedGame { get; set; } = 1;
@@ -129,7 +130,7 @@ namespace Model
         {
             byte servesAmount = (byte)(Game.SecondSideScore + Game.FirstSideScore + 1
                 - (MaxScore - 1) * 2);
-            if (servesAmount % 2 == 0 || (servesAmount + 1) % 2 == 0)
+            if (servesAmount % 2 == 0)
                 return InverseServe(WhoStartedMatch);
             else
                 return WhoStartedMatch;

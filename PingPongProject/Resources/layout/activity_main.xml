@@ -22,10 +22,12 @@
             android:id="@+id/SecondPlayerButtonLayout" >
             <Button
                 android:text="+1"
+                android:textSize="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/buttonSecondPlayer"
-                android:rotation="180" />
+                android:rotation="180"
+                app:backgroundTint="@color/colorSecondPlayerButton" />
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -155,9 +157,11 @@
             android:id="@+id/FirstPlayerButtonLayout">
             <Button
                 android:text="+1"
+                android:textSize="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/buttonFirstPlayer" />
+                android:id="@+id/buttonFirstPlayer"
+                app:backgroundTint="@color/colorFirstPlayerButton" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
