@@ -6,7 +6,7 @@ namespace Model
 
     public class Logic
     {
-        public MatchEnd OnMatchEnd; // to sub from view
+        public MatchEnd OnMatchEnd; 
 
         private Game Game { get; set; } = new Game();
 
