@@ -22,7 +22,7 @@
             android:id="@+id/SecondPlayerButtonLayout" >
             <Button
                 android:text="+1"
-                android:textSize="40dp"
+                android:textSize="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/buttonSecondPlayer"
@@ -157,7 +157,7 @@
             android:id="@+id/FirstPlayerButtonLayout">
             <Button
                 android:text="+1"
-                android:textSize="40dp"
+                android:textSize="30dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/buttonFirstPlayer"

@@ -38,7 +38,7 @@ namespace PingPongProject
 
             InitializeInterfaceElements();
 
-            Main();
+            Main();            
         }
 
         private void Main()
@@ -86,18 +86,20 @@ namespace PingPongProject
 
         private void SetButtonColor(Button button, Color color)
         {
-            
+            button.SetBackgroundColor(color);
         }
 
         private void UpdateServingSideIndicator()
         {
             if (logic.WhoIsServing == 1)
             {
-                
+                SetButtonColor(addScoreToFirstPlayerButton, Color.White);
+                SetButtonColor(addScoreToSecondPlayerButton, new Color(Resource.Color.colorWhoIsServing));
             }
             else if (logic.WhoIsServing == 2)
             {
-                
+                SetButtonColor(addScoreToSecondPlayerButton, Color.White);
+                SetButtonColor(addScoreToFirstPlayerButton, new Color(Resource.Color.colorWhoIsServing));
             }
         }
     }
